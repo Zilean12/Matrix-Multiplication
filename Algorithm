@@ -1,0 +1,46 @@
+Algorithm -
+
+D1 =  (a11 + a22) * (b11 + b22)
+D2 =  (a21 + a22)*b11
+D3 =  (b12 – b22)*a11
+D4 =  (b21 – b11)*a22
+D5 =  (a11 + a12)*b22
+D6 =  (a21 – a11) * (b11 + b12)
+D7 =  (a12 – a22) * (b21 + b22)
+ 
+Four Formula 
+    C00= d1 + d4 – d5 + d7
+
+    C01 = d3 + d5
+
+    C10 = d2 + d4
+
+    C11 = d1 + d3 – d2 – d6
+    
+
+
+Algorithm Strass(n, x, y, z)
+
+
+begin 
+If n = threshold then compute
+    C = x * y is a conventional matrix.
+Else
+    Partition a into four sub matrices  a00, a01, a10, a11.
+    Partition b into four sub matrices b00, b01, b10, b11.
+    Strass ( n/2, a00 + a11, b00 + b11, d1)
+    Strass ( n/2, a10 + a11, b00, d2)
+    Strass ( n/2, a00, b01 – b11, d3)
+    Strass ( n/2, a11, b10 – b00, d4)
+    Strass ( n/2, a00 + a01, b11, d5)
+    Strass (n/2, a10 – a00, b00 + b11, d6)
+    Strass (n/2, a01 – a11, b10 + b11, d7)
+
+C = d1+d4-d5+d7       
+      d3+d5
+      d2+d4
+      d1+d3-d2-d6  
+
+end if
+    return (C)
+end.
